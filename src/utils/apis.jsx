@@ -18,4 +18,9 @@ const getUserInfo = (username) => {
     .then(({data}) => data.user)
 }
 
-export {getArticles, getUserInfo}
+const getArticleById = (article_id) => {
+    return ncNewsApi.get(`/articles/${article_id}`)
+    .then(({data}) => data.article);
+}
+
+export {getArticles, getUserInfo, getArticleById}

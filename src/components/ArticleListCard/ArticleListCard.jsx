@@ -2,6 +2,7 @@ import { getUserInfo } from "../../utils/apis";
 import styles from "./ArticleListCard.module.css";
 import { useEffect, useState } from "react";
 import dateConverter from "../../utils/dateConverter";
+import { Link } from "react-router-dom";
 
 const ArticleListCard = ({ article }) => {
     const [authorInfo, setAuthorInfo] = useState({});
@@ -14,7 +15,11 @@ const ArticleListCard = ({ article }) => {
 
     return (
         <li className={styles["article-card-container"]}>
-            <img src={article.article_img_url} alt="background article image" className={styles["article-background-img"]}/>
+            <img
+                src={article.article_img_url}
+                alt="background article image"
+                className={styles["article-background-img"]}
+            />
             <div className={styles["article-card-author-info"]}>
                 <img
                     src={authorInfo.avatar_url}
@@ -26,7 +31,9 @@ const ArticleListCard = ({ article }) => {
                 </p>
             </div>
             <div className={styles["article-card-title-date"]}>
-                <h3 className={styles["article-title"]}>{article.title}</h3>
+                <Link to={`/${article.article_id}`} className={styles["link"]}>
+                    <h3 className={styles["article-title"]}>{article.title}</h3>
+                </Link>
                 <p className={styles["date-created"]}>
                     {dateConverter(article.created_at)}
                 </p>
