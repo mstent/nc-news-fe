@@ -49,7 +49,6 @@
 }
 
 .author-avatar {
-    /* border: red dotted 2px; */
     height: 60%;
     width: 4em;
     object-fit: contain;
@@ -58,14 +57,12 @@
 }
 
 .author-username {
-    /* border: green dotted 2px; */
     margin-block-start: 0;
     margin-block-end: 0;
     align-self: center;
 }
 
 .article-title {
-    /* border: blue dotted 2px; */
     margin-block: 0;
     height: 5em;
     overflow: auto;
@@ -75,7 +72,6 @@
 }
 
 .date-created {
-    /* border: yellow dotted 2px; */
     margin-block: 0;
     align-self: flex-end;
     font-size: 0.7em;
@@ -83,11 +79,13 @@
     margin-top: 1em;
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
 .comment-count {
-    /* border: purple dotted 2px; */
 }
 
 .vote-count {
-    /* border: silver dotted 2px; */
     margin-left: 1em;
 }
