@@ -4,3 +4,18 @@ const ncNewsApi = axios.create({
     baseURL: "https://nc-news-23re.onrender.com/api"
 })
 
+const getArticles = () => {
+    return ncNewsApi.get('/articles', {
+        params: {
+            limit: "null"
+        }
+    })
+    .then(({data}) => data.articles);
+}
+
+const getUserInfo = (username) => {
+    return ncNewsApi.get(`/users/${username}`)
+    .then(({data}) => data.user)
+}
+
+export {getArticles, getUserInfo}
