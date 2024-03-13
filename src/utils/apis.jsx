@@ -23,4 +23,9 @@ const getArticleById = (article_id) => {
     .then(({data}) => data.article);
 }
 
-export {getArticles, getUserInfo, getArticleById}
+const getComments = (article_id) => {
+    return ncNewsApi.get(`/articles/${article_id}/comments`)
+    .then(({data}) => data.comments);
+}
+
+export {getArticles, getUserInfo, getArticleById, getComments}
