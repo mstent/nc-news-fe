@@ -2,6 +2,7 @@ import styles from "./ArticleCard.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getArticleById, getUserInfo } from "../../utils/apis";
+import dateConverter from '../../utils/dateConverter';
 
 const ArticleCard = () => {
     const [article, setArticle] = useState({});
@@ -35,6 +36,9 @@ const ArticleCard = () => {
             <p className={styles["article-card-body"]}>{article.body}</p>
             <div className={styles["article-card-vote-count"]}>
                 Votes: {article.votes}
+            </div>
+            <div className={styles["article-card-date"]}>
+                {dateConverter(String(article.created_at))}
             </div>
         </div>
     );
