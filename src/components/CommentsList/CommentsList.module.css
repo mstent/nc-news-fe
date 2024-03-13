@@ -1,0 +1,19 @@
+.loading {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.comments-list-container {
+    border: solid black 1px;
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comments-header {
+    margin-bottom: 0;
+    font-weight: 500;
+}
