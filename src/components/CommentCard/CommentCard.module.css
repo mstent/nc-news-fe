@@ -69,3 +69,18 @@
     height: 100%;
     margin: 0;
 }
+
+.btn-delete-comment {
+    align-self: flex-end;
+    margin-top: 1rem;
+    background-color: rgb(240, 200, 200);
+}
+
+.deleted-comment {
+    color: red;
+    background-color: white;
+    padding: 0.5rem;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px grey;
+    border-radius: 16px;
+}

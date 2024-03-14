@@ -27,12 +27,13 @@ const CommentsList = () => {
                 <>
                     <h2 className={styles["comments-header"]}>Comments</h2>
                     <ul className={styles["comments-list-container"]}>
-                    <PostCommentForm article_id={article_id}/>
+                        <PostCommentForm article_id={article_id}/>
                         {commentsListArr.map((comment) => {
                             return (
                                 <CommentCard
                                     comment={comment}
-                                key={comment.comment_id}/>
+                                    key={comment.comment_id}
+                                />
                             );
                         })}
                     </ul>
