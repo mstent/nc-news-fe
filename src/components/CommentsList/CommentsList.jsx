@@ -25,9 +25,9 @@ const CommentsList = () => {
                 <p className={styles["loading"]}>Loading Comments...</p>
             ) : (
                 <>
-                    <PostCommentForm />
                     <h2 className={styles["comments-header"]}>Comments</h2>
                     <ul className={styles["comments-list-container"]}>
+                    <PostCommentForm article_id={article_id}/>
                         {commentsListArr.map((comment) => {
                             return (
                                 <CommentCard

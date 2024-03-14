@@ -25,7 +25,7 @@ const CommentCard = ({comment}) => {
             </div>
             <div className={styles["comment-info-container"]}>
                 <div className={styles["comment-date-delete-container"]}>
-                    <p className={styles["date-made"]}>{dateConverter(String(comment.created_at))}</p>
+                    <p className={styles["date-made"]}>{ comment.created_at ? dateConverter(String(comment.created_at)): null}</p>
                 </div>
                 <p className={styles["comment-body"]}>{comment.body}</p>
             </div>
