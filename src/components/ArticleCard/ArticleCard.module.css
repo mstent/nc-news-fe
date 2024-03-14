@@ -10,13 +10,31 @@
     grid-template-columns: auto 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-        "authorInfo . . ."
+        "authorInfo . . upvote"
         "title title title title"
         "body body body body"
         "voteCount . . date";
     border-radius: 16px;
     padding: 1rem;
     background-color: silver;
+}
+
+.btn-upvote {
+    grid-area: upvote;
+    height: 3em;
+    width: 6em;
+    background-color: white;
+    text-transform: uppercase;
+    justify-self: end;
+}
+
+.btn-upvote-clicked {
+    grid-area: upvote;
+    height: 3em;
+    width: 6em;
+    background-color: green;
+    text-transform: uppercase;
+    justify-self: end;
 }
 
 
