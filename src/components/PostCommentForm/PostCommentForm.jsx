@@ -18,7 +18,6 @@ const PostCommentForm = ({ article_id }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (newComment !== "") {
-            postComment(article_id, commentAuthor.username, newComment);
             setAddedComment((curr) => {
                 const previousComments = [...curr];
                 const newCommentInfo = {
@@ -32,6 +31,13 @@ const PostCommentForm = ({ article_id }) => {
                 return [
                     <CommentCard comment={newCommentInfo} key={Date.now()} />, previousComments
                 ];
+            });
+            postComment(article_id, commentAuthor.username, newComment).catch((err) => {
+                setAddedComment((curr) => {
+                    const previousComments = [...curr];
+                    previousComments.shift();
+                    return previousComments;
+                })
             });
             setNewComment('');
         }
