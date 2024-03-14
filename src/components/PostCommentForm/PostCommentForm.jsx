@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/User";
 import styles from "./PostCommentForm.module.css";
 import { useState } from "react";
@@ -8,9 +8,8 @@ import CommentCard from "../CommentCard/CommentCard";
 const PostCommentForm = ({ article_id }) => {
     const commentAuthor = useContext(UserContext).user;
     const [newComment, setNewComment] = useState("");
-
     const [addedComment, setAddedComment] = useState([]);
-
+    const [isDeletedComment, setIsDeletedComment] = useState(false);
     const handleNewComment = (e) => {
         setNewComment(e.target.value);
     };
@@ -26,23 +25,25 @@ const PostCommentForm = ({ article_id }) => {
                     article_id: article_id,
                     author: commentAuthor.username,
                     votes: 0,
-                    created_at: 'today',
+                    created_at: "today",
                 };
                 return [
-                    <CommentCard comment={newCommentInfo} key={Date.now()} />, previousComments
+                    <CommentCard comment={newCommentInfo} key={Date.now()} />,
+                    previousComments,
                 ];
             });
-            postComment(article_id, commentAuthor.username, newComment).catch((err) => {
-                setAddedComment((curr) => {
-                    const previousComments = [...curr];
-                    previousComments.shift();
-                    return previousComments;
-                })
-            });
-            setNewComment('');
+            postComment(article_id, commentAuthor.username, newComment).catch(
+                (err) => {
+                    setAddedComment((curr) => {
+                        const previousComments = [...curr];
+                        previousComments.shift();
+                        return previousComments;
+                    });
+                }
+            );
+            setNewComment("");
         }
     };
-
 
     return (
         <>
@@ -69,8 +70,8 @@ const PostCommentForm = ({ article_id }) => {
             </form>
             {addedComment.length !== 0
                 ? addedComment.map((comment) => {
-                    return comment;
-                })
+                      return comment;
+                  })
                 : null}
         </>
     );
