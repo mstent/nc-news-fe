@@ -42,6 +42,21 @@ const removeVote = (article_id) => {
         .then(({ data }) => data.article);
 };
 
+const postComment = (article_id, username, postBody) => {
+    return ncNewsApi
+        .post(`/articles/${article_id}/comments`, {
+            username: username,
+            body: postBody,
+        })
+        .then(({ data }) => data.comment);
+};
+
+const deleteComment = (comment_id) => {
+    return ncNewsApi.delete(`/comments/${comment_id}`).catch((err) => {
+        return { error: err };
+    });
+};
+
 export {
     getArticles,
     getUserInfo,
@@ -49,4 +64,6 @@ export {
     getComments,
     upvote,
     removeVote,
+    postComment,
+    deleteComment,
 };
