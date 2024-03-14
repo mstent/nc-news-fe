@@ -27,7 +27,7 @@ const PostCommentForm = ({ article_id }) => {
                     article_id: article_id,
                     author: commentAuthor.username,
                     votes: 0,
-                    created_at: null,
+                    created_at: 'today',
                 };
                 return [
                     <CommentCard comment={newCommentInfo} key={Date.now()} />, previousComments
