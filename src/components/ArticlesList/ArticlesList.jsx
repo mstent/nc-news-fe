@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
-import ArticleListCard from '../ArticleListCard/ArticleListCard';
-import { useEffect } from 'react';
-import {getArticles} from '../../utils/apis';
-import styles from './ArticlesList.module.css'
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from "react";
+import ArticleListCard from "../ArticleListCard/ArticleListCard";
+import { useEffect } from "react";
+import { getArticles } from "../../utils/apis";
+import styles from "./ArticlesList.module.css";
 
-const ArticlesList = () => {
-    const [articlesList, setArticlesList] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [searchParams] = useSearchParams();
-    const topic = searchParams.get('topic');
+const ArticlesList = ({ searchParams }) => {
+    const [articlesList, setArticlesList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const topic = searchParams.get("topic");
+    const sortBy = searchParams.get("sort_by");
+    const orderBy = searchParams.get("order");
 
     useEffect(() => {
-        getArticles(topic).then((data) => {
+        setIsLoading(true);
+        getArticles(topic, sortBy, orderBy).then((data) => {
             setArticlesList(data);
-        })
+        });
         setIsLoading(false);
-    }, [topic])
+    }, [topic, sortBy, orderBy]);
 
     return (
-        <div className={styles["article-list-container"]}>
-            <ul>
-                {articlesList.map((article) => {
-                    return <ArticleListCard key={article.article_id} article={article}/>
-                })}
-            </ul>
-
-        </div>
+        <>
+            {isLoading ? (
+                <p className={styles["article-loading"]}>Loading...</p>
+            ) : (
+                <div className={styles["article-list-container"]}>
+                    <ul>
+                        {articlesList.map((article) => {
+                            return (
+                                <ArticleListCard
+                                    key={article.article_id}
+                                    article={article}
+                                />
+                            );
+                        })}
+                    </ul>
+                </div>
+            )}
+        </>
     );
 };
 

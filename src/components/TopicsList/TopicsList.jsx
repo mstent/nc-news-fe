@@ -28,7 +28,7 @@ const TopicsList = () => {
                 if (topic.slug === currentTopic) {
                     highlight = styles["topic-selected"]
                 }
-                return <Link to={`/?topic=${topic.slug}`}><li key={topic.slug} className={[styles["topic"], highlight].join(" ")}>{topic.slug}</li></Link>
+                return <Link to={`/?topic=${topic.slug}`} key={topic.slug}><li className={[styles["topic"], highlight].join(" ")}>{topic.slug}</li></Link>
             })}
         </div>
             <h3 className={styles["topics-header"]}>Topics</h3>
