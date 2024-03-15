@@ -7,11 +7,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: scroll;
     padding: 0.4rem;
     box-shadow: 1px 1px 3px grey;
     justify-content: flex-start;
 
+}
+
+@media (max-width: 450px) {
+    .topics-list-container {
+        overflow: scroll;
+    }
 }
 
 .topics-header {
