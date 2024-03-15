@@ -1,0 +1,49 @@
+.topics-list-container {
+    background-color: lightpink;
+    width: 80%;
+    margin: auto;
+    height: 3rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: scroll;
+    padding: 0.4rem;
+    box-shadow: 1px 1px 3px grey;
+    justify-content: flex-start;
+
+}
+
+.topics-header {
+    margin: auto;
+    margin-block: none;
+    text-align: center;
+    background-color: lightpink;
+    box-shadow: 1px 1px 3px grey;
+    width: 6rem;
+    border-radius: 1rem;
+    transform: translateY(-4.6rem);
+}
+
+.topic {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    list-style: none;
+    padding: 0.4rem;
+    background-color: rgb(249, 192, 202);
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px grey;
+    font-weight: bold;
+    border: solid black 1px;
+    white-space: nowrap;
+}
+
+.topic-selected {
+    background-color: darkred;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
